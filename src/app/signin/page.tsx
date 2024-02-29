@@ -73,6 +73,8 @@ const SignIn = () => {
                     </div>
                 </div>
 
+                <Link href='/resetpass'>Forgot Password?</Link>
+
                 {error && <div className="my-6 text-red-600">{error}</div>}
 
                 <div className="mb-5">

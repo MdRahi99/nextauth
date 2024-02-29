@@ -1,7 +1,7 @@
 'use client'
 import React, { createContext, useState, ReactNode, useEffect } from 'react';
 import { AuthType } from "../types/AuthType";
-import { User, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth';
+import { User, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth';
 import app from "../firebase/firebase.config";
 
 export const AuthContext = createContext<AuthType | undefined>(undefined);
@@ -39,6 +39,10 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
         }
     };
 
+    const resetPassword = (email: string) => { 
+        return sendPasswordResetEmail(auth, email);
+      };
+
     const logOut = () => {
         return signOut(auth);
     };
@@ -48,6 +52,7 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
         signIn,
         signUp,
         updateUser,
+        resetPassword,
         logOut, 
         loading
     };
