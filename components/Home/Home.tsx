@@ -15,15 +15,19 @@ const Home = () => {
         router.push('/')
     };
 
+    const app_name = 'Pronto Invoice'
+
     return (
-        <div>
-            <h1>{user? user.displayName : 'No user Found'}</h1>
-            {
+        <div className='flex flex-col gap-3'>
+            <h1 className='text-xl font-bold'>{`Hello ${user ? user.displayName : ''}, Welcome to ${app_name}`}</h1>
+            <div>
+                {
                 user ?
                     <button onClick={() => handleLogout()}>Log Out</button>
                     :
                     <Link href='/signin'>Sign In</Link>
             }
+            </div>
         </div>
     );
 };

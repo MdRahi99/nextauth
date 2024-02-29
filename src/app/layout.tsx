@@ -9,7 +9,7 @@ const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
   return (
     <AuthProvider>
       <html lang="en">
-        <body className={inter.className}>
+        <body>
           {children}
         </body>
       </html>
